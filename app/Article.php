@@ -4,12 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Paint extends Model
+class Article extends Model
 {
     protected $fillable = [
-        'url',
         'title',
+        'body',
         'published_at'
     ]
-    //
+    //$article->published_at = Carbon\Carbone::now();
 }
