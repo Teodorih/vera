@@ -24,8 +24,12 @@ class ArticlesController extends Controller
         //if(is_null($article)){
         //    abort(404);
         //}
-        return view('articles.show')->with('article', $article);
+        return view('articles.open')->with('article', $article);
 
         // return dd($article);
+    }
+    public function create()
+    {
+        return view('articles.create');
     }
 }
