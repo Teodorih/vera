@@ -10,6 +10,6 @@ class Paint extends Model
         'url',
         'title',
         'published_at'
-    ]
+    ];
     //
 }

@@ -18,3 +18,8 @@ Route::get('/', function () {
 Route::get('paints', "PagesController@index");
 
 Route::get('about', "PagesController@about");
+
+Route::get('articles', "ArticlesController@index");
+Route::get('article/{id}', 'ArticlesController@open');
+
+Route::get('paints', 'PaintsController@index');
