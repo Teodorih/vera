@@ -20,8 +20,8 @@ Route::get('paints', "PagesController@index");
 Route::get('about', "PagesController@about");
 
 Route::get('articles', "ArticlesController@index");
-Route::get('article/{id}', 'ArticlesController@open');
 Route::get('articles/create', 'ArticlesController@create');
+Route::get('articles/{id}', 'ArticlesController@open');
 
 Route::get('paints', 'PaintsController@index');
 Route::get('paint/{id}', 'PaintsController@open');
