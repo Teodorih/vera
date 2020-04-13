@@ -3,7 +3,10 @@
 @section('content')
     <h1>Create Paint</h1>
 
-    {!! Form::open(['url' => 'paints']) !!}
+    {!! Form::open(['url' => 'paints',
+        'class' => 'form',
+        'novalidate' => 'novalidate',
+        'files' => true]) !!}
     <div class="form-group">
         {!! Form::label('title', 'Title: ') !!}
         {!! Form::text('title', null, ['class' => 'form-control']) !!}

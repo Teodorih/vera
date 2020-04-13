@@ -13,6 +13,13 @@ class Paint extends Model
         'published_at'
     ];
     //
+    public function rules()
+    {
+        return [
+            'title'        => 'required',
+            'image'       => 'required|mimes:jpg,png'
+        ];
+    }
 
     protected $dates = ['published_at'];
 

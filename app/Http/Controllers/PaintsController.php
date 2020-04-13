@@ -23,6 +23,8 @@ class PaintsController extends Controller
     }
     public function store(){
         $input = Request::all();
+        $imagename = $input['title']. '.' . $input['url']->getClientOriginalExtension();
+        $input['url']->move(base_path().'/public/images/catalog/', $imagename);
         Paint::create($input);
         return redirect('paints');
     }
