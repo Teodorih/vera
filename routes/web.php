@@ -25,4 +25,6 @@ Route::get('articles/{id}', 'ArticlesController@open');
 Route::post('articles', 'ArticlesController@store');
 
 Route::get('paints', 'PaintsController@index');
-Route::get('paint/{id}', 'PaintsController@open');
+Route::get('paints/create', 'PaintsController@create');
+Route::get('paints/{id}', 'PaintsController@open');
+Route::post('paints', 'PaintsController@store');
