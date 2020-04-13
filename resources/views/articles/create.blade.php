@@ -16,6 +16,11 @@
     </div>
 
     <div class="form-group">
+        {!! Form::label('published_at', 'published on: ') !!}
+        {!! Form::date('published_at', Carbon::now()) !!}
+    </div>
+
+    <div class="form-group">
         {!! Form::submit('Add article', ['class' => 'btn btn-primary form-control']) !!}
     </div>
 
