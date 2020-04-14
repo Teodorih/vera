@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Article;
 //use Illuminate\Http\Request;
+use App\Http\Requests\CreateArticleRequest;
 use Carbon\Carbon;
 use Request;
 
@@ -13,7 +14,7 @@ class ArticlesController extends Controller
     {
         //$articles = Article::all();
         //$articles = Article::latest()->get();
-        $articles = Article::latest()->published()->get();
+        $articles = Article::latest()->unpublished()->get();
 
         //$articles = Article::latest('published_at')->where('published_at', '<=', Carbon::now())->get();
         //$articles = Article::order_by('published_at', 'desc')->get();
@@ -40,10 +41,14 @@ class ArticlesController extends Controller
     {
         return view('articles.create');
     }
-    public function store()
+    public function store(CreateArticleRequest $request)
     {
+        //if request is standart laravel then we can use: $this->>validate($request, ['title' => 'required'])
+
+
         $input = Request::all();
        // $input['published_at'] = Carbon::now();
+
         //Request::get('title');
        Article::create($input);
        return redirect('articles');

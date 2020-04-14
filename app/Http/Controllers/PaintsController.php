@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateArticleRequest;
 use App\Paint;
 use Carbon\Carbon;
-use Request;
+use Request; //facade
 
 class PaintsController extends Controller
 {
@@ -23,6 +24,7 @@ class PaintsController extends Controller
     }
     public function store(){
         $input = Request::all();
+       // $input = $request->all();
         $imagename = $input['title']. '.' . $input['url']->getClientOriginalExtension();
         $input['url']->move(base_path().'/public/images/catalog/', $imagename);
         Paint::create($input);
