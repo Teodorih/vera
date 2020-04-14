@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateArticleRequest;
 use App\Paint;
 use Carbon\Carbon;
-use Request; //facade
+use Illuminate\Http\Request;
 
 class PaintsController extends Controller
 {
@@ -22,9 +22,12 @@ class PaintsController extends Controller
     public function create(){
         return view('paints.create');
     }
-    public function store(){
-        $input = Request::all();
-       // $input = $request->all();
+    public function store(Request $request){
+        //if request is standart laravel then we can use: $this->>validate($request, ['title' => 'required'])
+
+       // $input = Request::all();
+        $this->validate($request, ['title' => 'required', 'published_at'=>'required', 'url'=>'image']);
+        $input = $request->all();
         $imagename = $input['title']. '.' . $input['url']->getClientOriginalExtension();
         $input['url']->move(base_path().'/public/images/catalog/', $imagename);
         Paint::create($input);
