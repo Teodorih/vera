@@ -22,7 +22,7 @@ class ArticlesController extends Controller
         //return view('article.index') -> with ('articles', $articles);
     }
 
-    public function open($id)
+    public function show($id)
     {
         $article = Article::findorfail($id);
         // return view('articles.index') -> with ('articles', [$article]);
@@ -52,5 +52,9 @@ class ArticlesController extends Controller
         //Request::get('title');
        Article::create($input);
        return redirect('articles');
+    }
+    public function edit($id){
+        $article = Article::findorfail($id);
+        return view('articles.edit')->with('article', $article);
     }
 }

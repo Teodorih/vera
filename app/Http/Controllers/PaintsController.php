@@ -14,7 +14,7 @@ class PaintsController extends Controller
         $paints = Paint::all();
         return view('paints.index', compact('paints'));
     }
-    public function open($id){
+    public function show($id){
         $paint = Paint::findorfail($id);
         return view('paints.open', compact('paint'));
 
@@ -25,7 +25,7 @@ class PaintsController extends Controller
     public function store(Request $request){
         //if request is standart laravel then we can use: $this->>validate($request, ['title' => 'required'])
 
-       // $input = Request::all();
+       // $input = Request::all();ц
         $this->validate($request, ['title' => 'required', 'published_at'=>'required', 'url'=>'image']);
         $input = $request->all();
         $imagename = $input['title']. '.' . $input['url']->getClientOriginalExtension();

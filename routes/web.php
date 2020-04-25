@@ -19,12 +19,16 @@ Route::get('paints', "PagesController@index");
 
 Route::get('about', "PagesController@about");
 
-Route::get('articles', "ArticlesController@index");
+/*Route::get('articles', "ArticlesController@index");
 Route::get('articles/create', 'ArticlesController@create');
 Route::get('articles/{id}', 'ArticlesController@open');
 Route::post('articles', 'ArticlesController@store');
+Route::get('articles/{id}/edit', 'ArticlesController@edit'); */
+Route::resource('articles', 'ArticlesController');
+Route::resource('articles', 'PaintsController');
 
-Route::get('paints', 'PaintsController@index');
+/*Route::get('paints', 'PaintsController@index');
 Route::get('paints/create', 'PaintsController@create');
 Route::get('paints/{id}', 'PaintsController@open');
-Route::post('paints', 'PaintsController@store');
+Route::post('paints', 'PaintsController@store'); */
+
