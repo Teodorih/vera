@@ -25,12 +25,6 @@
     <div class="form-group">
         {!! Form::submit('Add pain', ['class' => 'btn btn-primary form-control']) !!}
     </div>
-    @if ($errors->any())
-        <ul class="alert alert-danger">
-            @foreach($errors->all() as $error)
-                <li> {{ $error }}</li>
-            @endforeach
-        </ul>
-    @endif
+   @include('errors.list')
     {!! Form::close() !!}
 @stop

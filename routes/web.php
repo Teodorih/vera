@@ -25,7 +25,7 @@ Route::get('articles/{id}', 'ArticlesController@open');
 Route::post('articles', 'ArticlesController@store');
 Route::get('articles/{id}/edit', 'ArticlesController@edit'); */
 Route::resource('articles', 'ArticlesController');
-Route::resource('articles', 'PaintsController');
+Route::resource('paints', 'PaintsController');
 
 /*Route::get('paints', 'PaintsController@index');
 Route::get('paints/create', 'PaintsController@create');

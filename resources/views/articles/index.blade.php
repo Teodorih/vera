@@ -6,7 +6,7 @@
         <articles>
             <h2>
 {{--                <a href="/articles/{{$article->id}}">--}}
-                <a href="{{ action('ArticlesController@open', $article->id) }}">
+                <a href="{{ action('ArticlesController@show', $article->id) }}">
                     {{$article->title}}
                 </a>
             </h2>

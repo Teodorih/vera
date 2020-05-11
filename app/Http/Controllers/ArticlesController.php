@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Article;
 //use Illuminate\Http\Request;
-use App\Http\Requests\CreateArticleRequest;
+use App\Http\Requests\ArticleRequest;
 use Carbon\Carbon;
 use Request;
 
@@ -13,10 +13,10 @@ class ArticlesController extends Controller
     public function index()
     {
         //$articles = Article::all();
-        //$articles = Article::latest()->get();
-        $articles = Article::latest()->unpublished()->get();
+       // $articles = Article::latest()->get();
+       // $articles = Article::latest()->unpublished()->get();
 
-        //$articles = Article::latest('published_at')->where('published_at', '<=', Carbon::now())->get();
+        $articles = Article::latest('published_at')->where('published_at', '<=', Carbon::now())->get();
         //$articles = Article::order_by('published_at', 'desc')->get();
         return view('articles.index', compact('articles'));
         //return view('article.index') -> with ('articles', $articles);
@@ -41,7 +41,7 @@ class ArticlesController extends Controller
     {
         return view('articles.create');
     }
-    public function store(CreateArticleRequest $request)
+    public function store(ArticleRequest $request)
     {
         //if request is standart laravel then we can use: $this->>validate($request, ['title' => 'required'])
 
@@ -56,5 +56,10 @@ class ArticlesController extends Controller
     public function edit($id){
         $article = Article::findorfail($id);
         return view('articles.edit')->with('article', $article);
+    }
+    public function update($id, ArticleRequest $request){
+        $article = Article::findOrFail($id);
+        $article->update( Request::all());
+        return redirect('articles');
     }
 }
