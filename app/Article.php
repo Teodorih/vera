@@ -10,7 +10,8 @@ class Article extends Model
     protected $fillable = [
         'title',
         'body',
-        'published_at'
+        'published_at',
+        'user_id'
     ];
     protected $dates = ['published_at'];
 
@@ -45,4 +46,11 @@ timezone: "UTC",
 
  $article = App\Article::create(['title' => 'New article', 'body' => 'Test second article', 'published_at' => Carbon\Carbon::now()])
 */
+    public function user(){
+        $this->belongsTo('App\User');
+    }
+
+    //$user->articles->toArray()
+    //$user->articles->where('title', 'NewArticle')->get();
+    //$user = App\User::where('name', 'Victor Iva')->first();
 }
