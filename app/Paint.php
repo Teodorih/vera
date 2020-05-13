@@ -35,4 +35,7 @@ class Paint extends Model
     public function scopeUnpublished($query){
         $query->where('published_at', '>=', Carbon::now());
     }
+	  public function user(){
+        $this->belongsTo('App\User');
+    }
 }
